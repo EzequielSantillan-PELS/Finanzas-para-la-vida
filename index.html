@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Finanzas para la Vida | Taller Comunitario de Educación Financiera Básica</title>
+  <meta name="description" content="Proyecto comunitario desarrollado en Prepa en Línea SEP (Módulos 22 y 23). Planeación, control y uso de tecnologías emergentes." />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#0f1a33;
+      --card:#111f3d;
+      --text:#eaf0ff;
+      --muted:#b7c4e6;
+      --line:rgba(255,255,255,.12);
+      --accent:#7aa7ff;
+      --accent2:#6ee7b7;
+      --warn:#fbbf24;
+      --shadow: 0 18px 45px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 15% 10%, rgba(122,167,255,.25), transparent 60%),
+                  radial-gradient(900px 600px at 80% 15%, rgba(110,231,183,.18), transparent 55%),
+                  radial-gradient(1100px 800px at 50% 95%, rgba(251,191,36,.10), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.65);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex; gap:14px; align-items:center; justify-content:space-between;
+      padding:12px 0;
+    }
+    .brand{
+      display:flex; flex-direction:column;
+      gap:2px;
+    }
+    .brand b{font-size:14px; letter-spacing:.2px}
+    .brand span{font-size:12px; color:var(--muted)}
+    .links{
+      display:flex; flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content:flex-end;
+    }
+    .links a{
+      font-size:12px;
+      padding:8px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.05);
+    }
+    .hero{
+      padding:42px 0 20px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 860px){
+      .hero-grid{grid-template-columns:1fr}
+      .links{justify-content:flex-start}
+    }
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-card{padding:22px}
+    .kicker{
+      display:inline-flex;
+      gap:8px; align-items:center;
+      font-size:12px;
+      color:var(--muted);
+      padding:6px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
+    }
+    h1{
+      margin:12px 0 10px;
+      font-size:34px;
+      line-height:1.12;
+      letter-spacing:-.4px;
+    }
+    @media (max-width: 500px){
+      h1{font-size:28px}
+    }
+    .lead{color:var(--muted); margin:0 0 14px}
+    .cta-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background: rgba(122,167,255,.14);
+      color: var(--text);
+      font-size:13px;
+      font-weight:600;
+    }
+    .btn.secondary{
+      background: rgba(110,231,183,.12);
+    }
+    .stats{
+      padding:18px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+    .stat{
+      padding:14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+    .stat b{display:block; font-size:14px}
+    .stat span{display:block; font-size:12px; color:var(--muted); margin-top:4px}
+    section{padding:18px 0}
+    .section-card{
+      padding:18px;
+    }
+    .section-title{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+      margin-bottom:10px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+    .tag{
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:6px 10px;
+      background: rgba(255,255,255,.04);
+      white-space:nowrap;
+    }
+    .grid2{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+    }
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 860px){
+      .grid2{grid-template-columns:1fr}
+      .grid3{grid-template-columns:1fr}
+    }
+    .callouts{
+      display:grid;
+      gap:10px;
+    }
+    .callout{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px;
+      background: rgba(255,255,255,.03);
+    }
+    .callout b{display:block; font-size:13px}
+    .callout ul{margin:8px 0 0 18px; color:var(--muted)}
+    .list{
+      margin:10px 0 0 18px;
+      color:var(--muted);
+    }
+    .cards{
+      display:grid;
+      gap:12px;
+    }
+    .mini{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px;
+      background: rgba(255,255,255,.03);
+    }
+    .mini h3{margin:0 0 6px; font-size:14px}
+    .mini p{margin:0; color:var(--muted); font-size:13px}
+    .evidence{
+      border:1px dashed rgba(255,255,255,.22);
+      border-radius:14px;
+      padding:12px;
+      background: rgba(255,255,255,.02);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .evidence code{color:var(--text)}
+    .ref{
+      color:var(--muted);
+      font-size:13px;
+    }
+    .ref li{margin:8px 0}
+    footer{
+      padding:26px 0 34px;
+      border-top:1px solid var(--line);
+      margin-top:16px;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .print-note{
+      font-size:12px; color:var(--muted); margin-top:10px
+    }
+    @media print{
+      .nav, .cta-row{display:none !important}
+      body{background:#fff; color:#111}
+      .panel{box-shadow:none}
+      a{color:#111; text-decoration:underline}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav" aria-label="Navegación principal">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <b>Finanzas para la Vida</b>
+        <span>Proyecto comunitario | Prepa en Línea SEP (Módulos 22 y 23)</span>
+      </div>
+      <nav class="links" aria-label="Secciones">
+        <a href="#proyecto">El proyecto</a>
+        <a href="#objetivos">Objetivos</a>
+        <a href="#planeacion">Planeación</a>
+        <a href="#control">Control</a>
+        <a href="#tecnologias">Tecnologías</a>
+        <a href="#evidencias">Evidencias</a>
+        <a href="#video">Video</a>
+        <a href="#referencias">Referencias</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" id="inicio">
+      <div class="hero-grid">
+        <div class="panel hero-card">
+          <div class="kicker">Fase final · Presentación web del proyecto</div>
+          <h1>Finanzas para la Vida: Taller Comunitario de Educación Financiera Básica</h1>
+          <p class="lead">
+            Proyecto enfocado en fortalecer hábitos financieros cotidianos (presupuesto, ahorro y uso responsable del crédito),
+            mediante una implementación por fases y el apoyo de tecnologías emergentes para planear, dar seguimiento y corregir.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn" href="#planeacion">Ver planeación (Gantt)</a>
+            <a class="btn secondary" href="#control">Ver control y estándares</a>
+          </div>
+
+          <div class="print-note">
+            Tip: Puedes imprimir esta página (Ctrl+P) si necesitas una versión en PDF.
+          </div>
+        </div>
+
+        <aside class="panel stats" aria-label="Resumen ejecutivo">
+          <div class="stat">
+            <b>Problema que atiende</b>
+            <span>Brechas de educación financiera básica en la comunidad.</span>
+          </div>
+          <div class="stat">
+            <b>Enfoque</b>
+            <span>Taller por sesiones + control (medir y corregir) para asegurar cumplimiento.</span>
+          </div>
+          <div class="stat">
+            <b>Resultado esperado</b>
+            <span>Mejor toma de decisiones financieras en la vida diaria.</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- EL PROYECTO -->
+    <section id="proyecto">
+      <div class="panel section-card">
+        <div class="section-title">
+          <h2>El proyecto</h2>
+          <span class="tag">Contexto · Por qué · Cómo</span>
+        </div>
+
+        <div class="grid2">
+          <div>
+            <p class="ref">
+              <b>Descripción, relevancia y enfoque de solución.</b><br/>
+              <i>Finanzas para la Vida</i> surge como respuesta a una necesidad frecuente: la falta de herramientas prácticas para
+              administrar el dinero, planear gastos y tomar decisiones responsables sobre el uso del crédito. Esta situación puede
+              reflejarse en desorden financiero y endeudamiento no planificado, afectando la estabilidad familiar.
+            </p>
+
+            <p class="ref">
+              La solución se implementa mediante un <b>taller comunitario</b> estructurado en sesiones breves y aplicables, con una ruta de trabajo:
+              <b>diagnóstico inicial → diseño de contenidos → ejecución de sesiones → evaluación de resultados</b>. Las tecnologías emergentes apoyan la
+              organización, la comunicación, el seguimiento y el resguardo de evidencias del proceso.
+            </p>
+
+            <p class="ref">
+              El alcance es formativo y preventivo: no sustituye asesoría financiera especializada; fortalece habilidades básicas para una toma de decisiones
+              más informada en la vida cotidiana.
+            </p>
+          </div>
+
+          <div class="callouts" aria-label="Resumen visual">
+            <div class="callout">
+              <b>Problema</b>
+              <ul>
+                <li>Falta de hábitos de presupuesto y ahorro.</li>
+                <li>Riesgo de endeudamiento no planificado.</li>
+              </ul>
+            </div>
+            <div class="callout">
+              <b>Solución</b>
+              <ul>
+                <li>Taller práctico por sesiones.</li>
+                <li>Seguimiento y evidencias.</li>
+              </ul>
+            </div>
+            <div class="callout">
+              <b>Impacto esperado</b>
+              <ul>
+                <li>Mejor toma de decisiones.</li>
+                <li>Herramientas útiles para la vida diaria.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OBJETIVOS -->
+    <section id="objetivos">
+      <div class="panel section-card">
+        <div class="section-title">
+          <h2>Objetivos</h2>
+          <span class="tag">Qué se busca lograr</span>
+        </div>
+
+        <div class="grid2">
+          <div class="mini">
+            <h3>Objetivo general</h3>
+            <p>
+              Fortalecer los conocimientos de educación financiera básica en la comunidad mediante la implementación de talleres formativos,
+              apoyados en tecnologías emergentes, que contribuyan a una mejor toma de decisiones económicas y al bienestar financiero.
+            </p>
+          </div>
+
+          <div class="mini">
+            <h3>Objetivos específicos</h3>
+            <ul class="list">
+              <li>Identificar necesidades financieras de la comunidad para orientar contenidos.</li>
+              <li>Diseñar sesiones formativas accesibles y contextualizadas.</li>
+              <li>Aplicar herramientas tecnológicas para organización, seguimiento y evaluación.</li>
+              <li>Evaluar el impacto con indicadores de participación y aprendizaje.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLANEACIÓN -->
+    <section id="planeacion">
+      <div class="panel section-card">
+        <div class="section-title">
+          <h2>Planeación y gestión</h2>
+          <span class="tag">Fases · Cronograma · Evidencias</span>
+        </div>
+
+        <div class="grid2">
+          <div class="mini">
+            <h3>Resumen de la planeación</h3>
+            <p>
+              El proyecto se organizó por fases para definir actividades, responsables y recursos. El diagrama de Gantt permite visualizar
+              secuencia, duración y superposición de actividades, facilitando el control del avance y la detección de desviaciones.
+            </p>
+            <p class="ref"><b>Inserta aquí tu imagen del Gantt</b> (captura legible) y, si deseas, una tabla resumida.</p>
+          </div>
+
+          <div class="evidence">
+            <b>Evidencia (placeholder)</b><br/>
+            Agrega una imagen: <code>gantt.png</code> o pega la captura directamente en GitHub (o en Sites).<br/>
+            Si después quieres enlazarlo: <code>&lt;img src="gantt.png" alt="Diagrama de Gantt del proyecto"&gt;</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTROL -->
+    <section id="control">
+      <div class="panel section-card">
+        <div class="section-title">
+          <h2>Control y evaluación</h2>
+          <span class="tag">Escenarios · Medir y corregir</span>
+        </div>
+
+        <div class="grid2">
+          <div class="mini">
+            <h3>Escenarios</h3>
+            <p class="ref"><b>Mejor escenario:</b> el proyecto se desarrolla conforme al cronograma, con asistencia constante y participación activa.</p>
+            <p class="ref"><b>Peor escenario:</b> retrasos, baja asistencia o disminución de participación que afecten el cumplimiento de objetivos.</p>
+            <p class="ref">
+              Se definieron acciones preventivas y correctivas para mantener condiciones óptimas o corregir desviaciones oportunamente.
+            </p>
+          </div>
+
+          <div class="mini">
+            <h3>10 estándares de seguimiento</h3>
+            <ol class="ref">
+              <li>Cumplimiento del cronograma (Gantt).</li>
+              <li>Porcentaje de asistencia por sesión.</li>
+              <li>Participación activa durante actividades.</li>
+              <li>Número de sesiones realizadas vs planeadas.</li>
+              <li>Calidad y claridad de contenidos impartidos.</li>
+              <li>Satisfacción de participantes (encuesta breve).</li>
+              <li>Gastos reales vs presupuesto.</li>
+              <li>Disponibilidad y uso de materiales.</li>
+              <li>Evidencias: listas, fotografías, reportes.</li>
+              <li>Cumplimiento de objetivos del proyecto.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECNOLOGÍAS -->
+    <section id="tecnologias">
+      <div class="panel section-card">
+        <div class="section-title">
+          <h2>Tecnologías emergentes</h2>
+          <span class="tag">Herramientas · Ventajas · Desventajas</span>
+        </div>
+
+        <div class="grid3">
+          <div class="mini">
+            <h3>Herramientas utilizadas</h3>
+            <p>Google Drive, Miro, herramientas de planeación (Gantt), Google Sites, y grabación de pantalla para socializar resultados.</p>
+          </div>
+          <div class="mini">
+            <h3>Ventajas (2)</h3>
+            <ul class="list">
+              <li>Mejor organización, seguimiento y evidencia documental.</li>
+              <li>Comunicación eficiente y toma de decisiones oportuna.</li>
+            </ul>
+          </div>
+          <div class="mini">
+            <h3>Desventajas (2)</h3>
+            <ul class="list">
+              <li>Dependencia de conectividad y disponibilidad tecnológica.</li>
+              <li>Curva de aprendizaje y necesidad de acuerdos de uso.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVIDENCIAS -->
+    <section id="evidencias">
+      <div class="panel section-card">
+        <div class="section-title">
+          <h2>Evidencias</h2>
+          <span class="tag">Productos del Módulo 22 y 23</span>
+        </div>
+
+        <div class="cards">
+          <div class="evidence">Inserta aquí: tabla de actividades/recursos (imagen o captura).</div>
+          <div class="evidence">Inserta aquí: diagrama de flujo (Miro) (imagen o enlace).</div>
+          <div class="evidence">Inserta aquí: estándares/escenarios (captura o extracto).</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section id="video">
+      <div class="panel section-card">
+        <div class="section-title">
+          <h2>Video de presentación</h2>
+          <span class="tag">4–5 minutos · Navegación del sitio</span>
+        </div>
+        <p class="ref">
+          Aquí colocaré el enlace del video (YouTube o nube) donde presento el proyecto, la implementación de tecnologías emergentes,
+          y una reflexión personal sobre logros y dificultades.
+        </p>
+        <div class="evidence">
+          Reemplaza este texto por tu enlace final del video, por ejemplo: <code>https://youtu.be/XXXXXXXXXXX</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFERENCIAS -->
+    <section id="referencias">
+      <div class="panel section-card">
+        <div class="section-title">
+          <h2>Referencias (APA 7)</h2>
+          <span class="tag">Sustento académico</span>
+        </div>
+        <ul class="ref">
+          <li>Prepa en Línea SEP. (2026). <i>Módulo 23. Las tecnologías emergentes en la administración y gestión. Unidad III: Evaluación del proyecto</i>. https://prepaenlinea.sep.gob.mx/</li>
+          <li>UNESCO. (2017). <i>Evaluación de proyectos comunitarios y sociales</i>. https://unesdoc.unesco.org/ark:/48223/pf0000259594</li>
+        </ul>
+        <p class="ref"><b>Autor:</b> Yurdiell Ezequiel Santillán Martínez · <b>Grupo:</b> M23C2G56-023</p>
+      </div>
+    </section>
+
+    <footer>
+      Sitio elaborado como evidencia final del Módulo 23 (Prepa en Línea SEP). Diseño responsivo y accesible (contraste, navegación por secciones).
+    </footer>
+  </main>
+</body>
+</html>
