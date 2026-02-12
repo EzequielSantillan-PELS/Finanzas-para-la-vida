@@ -131,7 +131,7 @@
     }
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
+      grid-template-columns: 1.10fr .90fr;
       gap:18px;
       align-items:stretch;
     }
@@ -190,8 +190,43 @@
     .hero-right{
       padding:18px;
       display:grid;
-      gap:10px;
+      gap:12px;
+      align-content:start;
     }
+
+    /* >>> NUEVO: hero media collage (taller/finanzas/dinero) */
+    .hero-media{
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      background: rgba(255,255,255,.02);
+    }
+    .hero-media-grid{
+      display:grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap:1px;
+      background: rgba(255,255,255,.08);
+    }
+    .hero-media img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      aspect-ratio: 16/10;
+    }
+    .hero-media-side{
+      display:grid;
+      grid-template-rows: 1fr 1fr;
+      gap:1px;
+    }
+    .hero-media-cap{
+      padding:10px 12px;
+      color:var(--muted);
+      font-size:12px;
+      border-top:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
     .metric{
       padding:14px;
       border-radius:14px;
@@ -232,8 +267,9 @@
       height: fit-content;
     }
 
-    .grid2{display:grid; grid-template-columns: 1.05fr .95fr; gap:14px}
-    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+    /* grids fluidos */
+    .grid2{display:grid; grid-template-columns: minmax(0,1.05fr) minmax(0,.95fr); gap:14px}
+    .grid3{display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:14px}
 
     .card{
       border:1px solid var(--line);
@@ -296,8 +332,26 @@
     }
     .evidence-grid{
       display:grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap:14px;
+    }
+
+    /* >>> NUEVO: imagen contextual en "Proyecto" */
+    .context-img{
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      background: rgba(255,255,255,.02);
+    }
+    .context-img img{
+      width:100%;
+      height:auto;
+      display:block;
+      object-fit:cover;
+      aspect-ratio: 16/10;
+    }
+    .context-img .img-cap{
+      border-top:1px solid var(--line);
     }
 
     /* ===========================
@@ -338,6 +392,13 @@
       .hero{padding-top:22px}
       .hero-left{padding:16px}
       .section-card{padding:14px}
+      .hero-media img{aspect-ratio: 16/11}
+    }
+
+    @media (max-width: 520px){
+      .brand{min-width: unset}
+      .brand span{display:none}
+      .btn{width:100%}
     }
   </style>
 </head>
@@ -402,6 +463,20 @@
         </div>
 
         <aside class="panel hero-right" aria-label="Resumen ejecutivo">
+          <!-- NUEVO: collage de imágenes (no sustituye evidencias; solo suma) -->
+          <div class="hero-media" aria-label="Imágenes de contexto del proyecto">
+            <div class="hero-media-grid">
+              <img src="./assets/taller.jpg" alt="Taller comunitario (imagen de contexto)" />
+              <div class="hero-media-side">
+                <img src="./assets/finanzas.jpg" alt="Finanzas (imagen de contexto)" />
+                <img src="./assets/dinero.jpg" alt="Dinero y ahorro (imagen de contexto)" />
+              </div>
+            </div>
+            <div class="hero-media-cap">
+              Contexto visual del proyecto (taller, finanzas y ahorro). Las evidencias formales se muestran más abajo.
+            </div>
+          </div>
+
           <div class="metric">
             <b>Problema que atiende</b>
             <span>Brecha de educación financiera básica y hábitos de planeación del gasto.</span>
@@ -444,6 +519,16 @@
             </p>
           </div>
 
+          <!-- NUEVO: imagen contextual dentro de la sección (suma, no reemplaza) -->
+          <figure class="context-img">
+            <img src="./assets/finanzas.jpg" alt="Imagen de contexto: educación financiera" />
+            <figcaption class="img-cap">Imagen de contexto del tema: educación financiera básica.</figcaption>
+          </figure>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="grid2">
           <div class="card">
             <h3>¿Cómo se llevará a cabo?</h3>
             <p>
@@ -451,6 +536,12 @@
               seguimiento con evidencias y evaluación final. Se utilizarán herramientas digitales para organización, comunicación y resguardo de materiales.
             </p>
           </div>
+
+          <!-- NUEVO: segunda imagen contextual (suma, no reemplaza) -->
+          <figure class="context-img">
+            <img src="./assets/dinero.jpg" alt="Imagen de contexto: ahorro y dinero" />
+            <figcaption class="img-cap">Imagen de contexto: hábitos de ahorro y planeación.</figcaption>
+          </figure>
         </div>
 
         <div style="height:12px"></div>
@@ -524,8 +615,8 @@
           </div>
 
           <figure class="img-card">
-            <a href="./assets/img/gantt.png" target="_blank" rel="noopener">
-              <img src="./assets/img/gantt.png" alt="Diagrama de Gantt del proyecto">
+            <a href="./assets/gantt.png" target="_blank" rel="noopener">
+              <img src="./assets/gantt.png" alt="Diagrama de Gantt del proyecto">
             </a>
             <figcaption class="img-cap">Diagrama de Gantt (captura). Clic para ver en tamaño completo.</figcaption>
           </figure>
@@ -546,22 +637,22 @@
 
         <div class="grid3">
           <figure class="img-card">
-            <a href="./assets/img/organigrama.png" target="_blank" rel="noopener">
-              <img src="./assets/img/organigrama.png" alt="Organigrama del proyecto">
+            <a href="./assets/organigrama.png" target="_blank" rel="noopener">
+              <img src="./assets/organigrama.png" alt="Organigrama del proyecto">
             </a>
             <figcaption class="img-cap">Organigrama: roles y apoyos del proyecto. Clic para ampliar.</figcaption>
           </figure>
 
           <figure class="img-card">
-            <a href="./assets/img/diagrama-flujo.jpg" target="_blank" rel="noopener">
-              <img src="./assets/img/diagrama-flujo.jpg" alt="Diagrama de flujo del proceso">
+            <a href="./assets/diagrama-flujo.jpg" target="_blank" rel="noopener">
+              <img src="./assets/diagrama-flujo.jpg" alt="Diagrama de flujo del proceso">
             </a>
             <figcaption class="img-cap">Diagrama de flujo del proceso (una fase). Clic para ampliar.</figcaption>
           </figure>
 
           <figure class="img-card">
-            <a href="./assets/img/tabla-actividades.png" target="_blank" rel="noopener">
-              <img src="./assets/img/tabla-actividades.png" alt="Tabla de actividades y recursos">
+            <a href="./assets/tabla-actividades.png" target="_blank" rel="noopener">
+              <img src="./assets/tabla-actividades.png" alt="Tabla de actividades y recursos">
             </a>
             <figcaption class="img-cap">Tabla de actividades/tareas/recursos. Clic para ampliar.</figcaption>
           </figure>
@@ -711,32 +802,62 @@
 
         <div class="evidence-grid">
           <figure class="img-card">
-            <a href="./assets/img/tabla-actividades.png" target="_blank" rel="noopener">
-              <img src="./assets/img/tabla-actividades.png" alt="Tabla de actividades del proyecto">
+            <a href="./assets/tabla-actividades.png" target="_blank" rel="noopener">
+              <img src="./assets/tabla-actividades.png" alt="Tabla de actividades del proyecto">
             </a>
             <figcaption class="img-cap">Tabla de actividades/tareas/recursos (Fase 3).</figcaption>
           </figure>
 
           <figure class="img-card">
-            <a href="./assets/img/organigrama.png" target="_blank" rel="noopener">
-              <img src="./assets/img/organigrama.png" alt="Organigrama del proyecto">
+            <a href="./assets/organigrama.png" target="_blank" rel="noopener">
+              <img src="./assets/organigrama.png" alt="Organigrama del proyecto">
             </a>
             <figcaption class="img-cap">Organigrama (Fase 4: división del trabajo).</figcaption>
           </figure>
 
           <figure class="img-card">
-            <a href="./assets/img/diagrama-flujo.jpg" target="_blank" rel="noopener">
-              <img src="./assets/img/diagrama-flujo.jpg" alt="Diagrama de flujo del proceso del proyecto">
+            <a href="./assets/diagrama-flujo.jpg" target="_blank" rel="noopener">
+              <img src="./assets/diagrama-flujo.jpg" alt="Diagrama de flujo del proceso del proyecto">
             </a>
             <figcaption class="img-cap">Diagrama de flujo (Fase 3: proceso).</figcaption>
           </figure>
 
           <figure class="img-card">
-            <a href="./assets/img/gantt.png" target="_blank" rel="noopener">
-              <img src="./assets/img/gantt.png" alt="Diagrama de Gantt del proyecto">
+            <a href="./assets/gantt.png" target="_blank" rel="noopener">
+              <img src="./assets/gantt.png" alt="Diagrama de Gantt del proyecto">
             </a>
             <figcaption class="img-cap">Diagrama de Gantt (Fase 5: control del proyecto).</figcaption>
           </figure>
+        </div>
+
+        <div style="height:14px"></div>
+        <!-- NUEVO: galería de contexto (suma, no reemplaza evidencias) -->
+        <div class="card">
+          <h3>Galería de contexto (imágenes adicionales)</h3>
+          <p style="margin:0;color:var(--muted);font-size:13px">
+            Estas imágenes fortalecen la presentación visual del proyecto (sin sustituir evidencias).
+          </p>
+          <div style="height:12px"></div>
+          <div class="grid3">
+            <figure class="img-card">
+              <a href="./assets/taller.jpg" target="_blank" rel="noopener">
+                <img src="./assets/taller.jpg" alt="Imagen de contexto: taller">
+              </a>
+              <figcaption class="img-cap">Taller comunitario (contexto visual).</figcaption>
+            </figure>
+            <figure class="img-card">
+              <a href="./assets/finanzas.jpg" target="_blank" rel="noopener">
+                <img src="./assets/finanzas.jpg" alt="Imagen de contexto: finanzas">
+              </a>
+              <figcaption class="img-cap">Educación financiera (contexto visual).</figcaption>
+            </figure>
+            <figure class="img-card">
+              <a href="./assets/dinero.jpg" target="_blank" rel="noopener">
+                <img src="./assets/dinero.jpg" alt="Imagen de contexto: dinero y ahorro">
+              </a>
+              <figcaption class="img-cap">Ahorro y dinero (contexto visual).</figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </section>
