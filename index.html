@@ -5,28 +5,30 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#0b1220" />
   <title>Finanzas para la Vida | Taller Comunitario de Educación Financiera Básica</title>
-  <meta name="description" content="Proyecto comunitario (Prepa en Línea SEP, Módulos 22 y 23). Planeación, organización, control y uso de tecnologías emergentes para educación financiera básica." />
+  <meta name="description" content="Proyecto comunitario de educación financiera personal: presupuesto, ahorro y decisiones responsables. Participa vía WhatsApp y consulta evidencias del proyecto." />
 
-  <!-- ✅ FIX CRÍTICO: fuerza la base correcta de GitHub Pages para rutas relativas -->
+  <!-- Base recomendada para GitHub Pages (mantiene rutas estables en navegación) -->
   <base href="https://ezequielsantillan-pels.github.io/Finanzas-para-la-vida/">
 
   <style>
-    /* ===========================
-       Design System (Azul + Gris)
-       =========================== */
     :root{
-      --bg:#0b1220;           /* fondo azul muy oscuro */
-      --surface:#0f1a33;      /* panel principal */
-      --surface2:#111f3d;     /* cards */
-      --text:#eef3ff;         /* texto */
-      --muted:#b7c4e6;        /* texto secundario */
+      --bg:#0b1220;
+      --surface:#0f1a33;
+      --surface2:#111f3d;
+      --text:#eef3ff;
+      --muted:#b7c4e6;
       --line:rgba(255,255,255,.12);
-      --blue:#7aa7ff;         /* acento */
-      --blue2:#4f7dff;        /* acento fuerte */
-      --gray:#cbd5e1;         /* gris */
+      --blue:#7aa7ff;
+      --blue2:#4f7dff;
+      --gray:#cbd5e1;
       --shadow: 0 18px 45px rgba(0,0,0,.35);
       --radius:18px;
       --max:1140px;
+
+      --ok: rgba(82,233,161,.18);
+      --okLine: rgba(82,233,161,.25);
+      --warn: rgba(255,199,0,.16);
+      --warnLine: rgba(255,199,0,.25);
     }
 
     *{box-sizing:border-box}
@@ -36,8 +38,6 @@
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:var(--text);
       line-height:1.55;
-
-      /* Background "executive" */
       background:
         radial-gradient(1200px 700px at 14% 6%, rgba(122,167,255,.22), transparent 60%),
         radial-gradient(900px 600px at 88% 8%, rgba(203,213,225,.10), transparent 55%),
@@ -47,12 +47,9 @@
 
     a{color:var(--blue); text-decoration:none}
     a:hover{text-decoration:underline}
-
     .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
 
-    /* ===========================
-       Top Bar / Nav (corporativo)
-       =========================== */
+    /* Topbar */
     .topbar{
       position:sticky; top:0; z-index:60;
       backdrop-filter: blur(10px);
@@ -63,16 +60,11 @@
       display:flex; align-items:center; justify-content:space-between;
       padding:12px 0; gap:14px;
     }
-
-    .brand{
-      display:flex; gap:12px; align-items:center;
-      min-width: 240px;
-    }
+    .brand{display:flex; gap:12px; align-items:center; min-width: 240px;}
     .logo{
       width:34px; height:34px;
       border-radius:10px;
-      background:
-        linear-gradient(135deg, rgba(122,167,255,.9), rgba(79,125,255,.65));
+      background: linear-gradient(135deg, rgba(122,167,255,.9), rgba(79,125,255,.65));
       box-shadow: 0 10px 30px rgba(79,125,255,.25);
       border:1px solid rgba(255,255,255,.12);
       flex:0 0 auto;
@@ -115,7 +107,7 @@
       padding:10px;
       display:grid;
       gap:8px;
-      min-width: 240px;
+      min-width: 260px;
     }
     .menu-panel a{
       display:block;
@@ -126,12 +118,8 @@
       font-size:13px;
     }
 
-    /* ===========================
-       Hero (estilo corporativo)
-       =========================== */
-    .hero{
-      padding:44px 0 22px;
-    }
+    /* Hero */
+    .hero{padding:44px 0 22px;}
     .hero-grid{
       display:grid;
       grid-template-columns: 1.10fr .90fr;
@@ -163,8 +151,8 @@
       color:var(--muted);
       margin:0 0 16px;
       font-size:clamp(13px, 1.6vw, 15px);
+      max-width: 70ch;
     }
-
     .hero-cta{
       display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;
       align-items:center;
@@ -180,9 +168,10 @@
       background: rgba(79,125,255,.25);
     }
     .btn:hover{text-decoration:none; filter:brightness(1.05)}
-    .btn.secondary{
-      background: rgba(255,255,255,.08);
-      font-weight:600;
+    .btn.secondary{background: rgba(255,255,255,.08); font-weight:600;}
+    .btn.whatsapp{
+      background: rgba(82,233,161,.16);
+      border-color: rgba(82,233,161,.22);
     }
     .btn .dot{
       width:8px; height:8px; border-radius:999px;
@@ -197,7 +186,6 @@
       align-content:start;
     }
 
-    /* hero media collage */
     .hero-media{
       border:1px solid var(--line);
       border-radius:16px;
@@ -240,26 +228,14 @@
     .metric span{display:block; margin-top:5px; font-size:12px; color:var(--muted)}
     .metric small{display:block; margin-top:8px; font-size:11px; color:rgba(183,196,230,.85)}
 
-    /* ===========================
-       Section Layout
-       =========================== */
     section{padding:18px 0}
     .section-card{padding:18px}
     .section-head{
       display:flex; align-items:flex-end; justify-content:space-between;
       gap:12px; margin-bottom:12px;
     }
-    .section-head h2{
-      margin:0;
-      font-size:18px;
-      letter-spacing:.2px;
-    }
-    .subtitle{
-      margin:0;
-      color:var(--muted);
-      font-size:13px;
-      max-width: 55ch;
-    }
+    .section-head h2{margin:0; font-size:18px; letter-spacing:.2px;}
+    .subtitle{margin:0; color:var(--muted); font-size:13px; max-width: 70ch;}
     .tag{
       font-size:12px; color:var(--muted);
       border:1px solid var(--line);
@@ -282,18 +258,13 @@
     .card h3{margin:0 0 6px; font-size:14px}
     .card p{margin:0; color:var(--muted); font-size:13px}
 
-    .list{margin:10px 0 0 18px; color:var(--muted)}
-    .list li{margin:6px 0}
-
     .feature{
       padding:14px;
       border-radius:16px;
       border:1px solid var(--line);
       background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
     }
-    .feature-top{
-      display:flex; gap:10px; align-items:center; margin-bottom:10px;
-    }
+    .feature-top{display:flex; gap:10px; align-items:center; margin-bottom:10px;}
     .icon{
       width:34px; height:34px;
       border-radius:12px;
@@ -304,8 +275,19 @@
       box-shadow: 0 10px 30px rgba(79,125,255,.15);
       flex:0 0 auto;
     }
-    .feature h3{margin:0; font-size:14px}
-    .feature p{margin:0; color:var(--muted); font-size:13px}
+    .badge{
+      display:inline-flex; gap:8px; align-items:center;
+      font-size:12px; color:var(--muted);
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+    .badge.ok{background: var(--ok); border-color: var(--okLine);}
+    .badge.warn{background: var(--warn); border-color: var(--warnLine);}
+
+    .list{margin:10px 0 0 18px; color:var(--muted)}
+    .list li{margin:6px 0}
 
     figure{margin:0}
     .img-card{
@@ -314,39 +296,13 @@
       background: rgba(255,255,255,.02);
       overflow:hidden;
     }
-    .img-card img{
-      display:block;
-      width:100%;
-      height:auto;
-    }
+    .img-card img{display:block; width:100%; height:auto;}
     .img-cap{
       padding:10px 12px;
       color:var(--muted);
       font-size:12px;
       border-top:1px solid var(--line);
       background: rgba(255,255,255,.03);
-    }
-    .evidence-grid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap:14px;
-    }
-
-    .context-img{
-      border:1px solid var(--line);
-      border-radius:16px;
-      overflow:hidden;
-      background: rgba(255,255,255,.02);
-    }
-    .context-img img{
-      width:100%;
-      height:auto;
-      display:block;
-      object-fit:cover;
-      aspect-ratio: 16/10;
-    }
-    .context-img .img-cap{
-      border-top:1px solid var(--line);
     }
 
     .callout{
@@ -370,7 +326,6 @@
       .hero-grid{grid-template-columns:1fr}
       .grid2{grid-template-columns:1fr}
       .grid3{grid-template-columns:1fr}
-      .evidence-grid{grid-template-columns:1fr}
       .navlinks{display:none}
       .menu{display:block}
       .section-head{flex-direction:column; align-items:flex-start}
@@ -380,7 +335,6 @@
       .section-card{padding:14px}
       .hero-media img{aspect-ratio: 16/11}
     }
-
     @media (max-width: 520px){
       .brand{min-width: unset}
       .brand span{display:none}
@@ -396,17 +350,19 @@
         <div class="logo" aria-hidden="true"></div>
         <div class="meta">
           <b>Finanzas para la Vida</b>
-          <span>Proyecto comunitario · Prepa en Línea SEP · M23C2G56-023</span>
+          <span>Taller comunitario · Educación financiera personal</span>
         </div>
       </div>
 
+      <!-- Navegación: primero público final, al final evidencias/módulo -->
       <nav class="navlinks" aria-label="Secciones">
-        <a href="#proyecto">Proyecto</a>
-        <a href="#objetivos">Objetivos</a>
-        <a href="#planeacion">Planeación</a>
-        <a href="#organizacion">Organización</a>
-        <a href="#control">Control</a>
-        <a href="#tecnologias">Tecnologías</a>
+        <a href="#inicio">Inicio</a>
+        <a href="#que-es">¿Qué es?</a>
+        <a href="#para-quien">¿Para quién?</a>
+        <a href="#que-aprendes">¿Qué aprenderás?</a>
+        <a href="#como-participar">Participar</a>
+        <a href="#impacto">Impacto</a>
+        <a href="#sustento">Sustento</a>
         <a href="#evidencias">Evidencias</a>
         <a href="#referencias">Referencias</a>
       </nav>
@@ -414,14 +370,14 @@
       <details class="menu">
         <summary>Menú ▾</summary>
         <nav class="menu-panel" aria-label="Secciones (móvil)">
-          <a href="#proyecto">Proyecto</a>
-          <a href="#objetivos">Objetivos</a>
-          <a href="#planeacion">Planeación</a>
-          <a href="#organizacion">Organización</a>
-          <a href="#control">Control</a>
-          <a href="#tecnologias">Tecnologías</a>
+          <a href="#inicio">Inicio</a>
+          <a href="#que-es">¿Qué es?</a>
+          <a href="#para-quien">¿Para quién?</a>
+          <a href="#que-aprendes">¿Qué aprenderás?</a>
+          <a href="#como-participar">Participar</a>
+          <a href="#impacto">Impacto</a>
+          <a href="#sustento">Sustento</a>
           <a href="#evidencias">Evidencias</a>
-          <a href="#video">Video</a>
           <a href="#referencias">Referencias</a>
         </nav>
       </details>
@@ -429,432 +385,402 @@
   </header>
 
   <main class="wrap">
+    <!-- HERO: público final -->
     <section class="hero" id="inicio">
       <div class="hero-grid">
         <div class="panel hero-left">
-          <div class="pill">Fase final · Presentación Web del proyecto</div>
-          <h1>Finanzas para la Vida: Taller Comunitario de Educación Financiera Básica</h1>
+          <div class="pill">Proyecto comunitario abierto</div>
+          <h1>Finanzas para la Vida</h1>
           <p class="lead">
-            Proyecto orientado a fortalecer hábitos financieros (presupuesto, ahorro y uso responsable del crédito) mediante sesiones prácticas,
-            con planeación por fases, seguimiento y control apoyado en tecnologías emergentes.
+            Taller comunitario de educación financiera personal para aprender a organizar el dinero,
+            reducir gastos impulsivos, fortalecer el hábito del ahorro y tomar decisiones responsables
+            sobre el uso del crédito.
           </p>
 
           <div class="hero-cta">
-            <a class="btn" href="#evidencias"><span class="dot" aria-hidden="true"></span> Ver evidencias gráficas</a>
-            <a class="btn secondary" href="#control">Revisar estándares de control</a>
+            <a class="btn whatsapp" href="https://chat.whatsapp.com/CfMiRI7RqWz1Tb1DVvgPMV" target="_blank" rel="noopener">
+              Unirme al grupo de WhatsApp
+            </a>
+            <a class="btn secondary" href="#que-aprendes">Ver temario del taller</a>
+            <a class="btn" href="#sustento"><span class="dot" aria-hidden="true"></span> Ver sustento del proyecto</a>
+          </div>
+
+          <div style="height:14px"></div>
+
+          <div class="callout">
+            <b>Promesa del proyecto</b>
+            <p>
+              En pocas sesiones, tendrás una guía práctica para: (1) identificar en qué se te va el dinero,
+              (2) crear un presupuesto realista y (3) definir un plan simple de ahorro y prioridades.
+            </p>
           </div>
         </div>
 
-        <aside class="panel hero-right" aria-label="Resumen ejecutivo">
+        <aside class="panel hero-right" aria-label="Resumen visual">
           <div class="hero-media" aria-label="Imágenes de contexto del proyecto">
             <div class="hero-media-grid">
               <img src="assets/img/taller.jpg" alt="Taller comunitario (imagen de contexto)" />
               <div class="hero-media-side">
-                <img src="assets/img/finanzas.jpg" alt="Finanzas (imagen de contexto)" />
-                <img src="assets/img/dinero.jpg" alt="Dinero y ahorro (imagen de contexto)" />
+                <img src="assets/img/finanzas.jpg" alt="Finanzas personales (imagen de contexto)" />
+                <img src="assets/img/dinero.jpg" alt="Ahorro y dinero (imagen de contexto)" />
               </div>
             </div>
             <div class="hero-media-cap">
-              Contexto visual del proyecto 
+              Taller práctico, sencillo y aplicable a la vida diaria.
             </div>
           </div>
 
           <div class="metric">
-            <b>Problema que atiende</b>
-            <span>Brecha de educación financiera básica y hábitos de planeación del gasto.</span>
-            <small>Enfoque preventivo y formativo.</small>
+            <b>Enfoque</b>
+            <span>Finanzas personales: presupuesto, ahorro, hábitos y decisiones.</span>
+            <small>Aprendizaje práctico, sin tecnicismos.</small>
           </div>
           <div class="metric">
-            <b>Cómo se implementa</b>
-            <span>Taller por sesiones + evidencias + control (medir y corregir).</span>
-            <small>Ruta: diagnóstico → ejecución → evaluación.</small>
+            <b>Formato</b>
+            <span>Sesiones breves + ejercicios + seguimiento por WhatsApp.</span>
+            <small>Materiales y recordatorios centralizados.</small>
           </div>
           <div class="metric">
             <b>Resultado esperado</b>
-            <span>Mejor toma de decisiones financieras en la vida diaria.</span>
-            <small>Mayor claridad en presupuesto y prioridades.</small>
+            <span>Más claridad financiera y mejores decisiones semana a semana.</span>
+            <small>Pequeños cambios sostenibles.</small>
           </div>
         </aside>
       </div>
     </section>
 
-    <section id="proyecto">
+    <!-- ¿Qué es? -->
+    <section id="que-es">
       <div class="panel section-card">
         <div class="section-head">
           <div>
-            <h2>Descripción del proyecto</h2>
-            <p class="subtitle">Contexto, relevancia e implementación general del taller comunitario.</p>
+            <h2>¿Qué es Finanzas para la Vida?</h2>
+            <p class="subtitle">Un taller comunitario de educación financiera básica, diseñado para la vida real.</p>
           </div>
-          <span class="tag">Qué · Por qué · Cómo</span>
+          <span class="tag">Proyecto comunitario</span>
         </div>
 
         <div class="grid2">
           <div class="card">
-            <h3>¿Cuál es el tema y por qué es relevante?</h3>
+            <h3>Idea central</h3>
             <p>
-              <b>Finanzas para la Vida</b> responde a la necesidad de herramientas prácticas para administrar el dinero, planear gastos,
-              fomentar el ahorro y tomar decisiones responsables sobre el uso del crédito. La educación financiera básica ayuda a prevenir
-              el desorden financiero y a reducir riesgos de endeudamiento no planificado.
+              “Finanzas para la Vida” es un taller que busca que las personas puedan administrar mejor su ingreso,
+              priorizar gastos, planear compras, iniciar un hábito de ahorro y reducir decisiones financieras impulsivas.
+              Se trabaja con ejemplos cotidianos y herramientas simples.
             </p>
+            <ul class="list">
+              <li>Sin lenguaje complicado</li>
+              <li>Enfoque 100% práctico</li>
+              <li>Aplicable desde la primera sesión</li>
+            </ul>
           </div>
 
-          <figure class="context-img">
-            <img src="assets/img/finanzas.jpg" alt="Imagen de contexto: educación financiera" />
-            <figcaption class="img-cap">Imagen de contexto del tema: educación financiera básica.</figcaption>
-          </figure>
+          <div class="card">
+            <h3>Propósito principal</h3>
+            <p>
+              Fortalecer habilidades financieras básicas que impacten positivamente en la economía personal y familiar,
+              promoviendo hábitos responsables que mejoren el bienestar y la toma de decisiones en la comunidad.
+            </p>
+            <div style="height:10px"></div>
+            <span class="badge ok">Orientado a resultados</span>
+            <span class="badge">Acompañamiento por WhatsApp</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ¿Para quién? -->
+    <section id="para-quien">
+      <div class="panel section-card">
+        <div class="section-head">
+          <div>
+            <h2>¿Para quién es este taller?</h2>
+            <p class="subtitle">Pensado para personas que quieren ordenar sus finanzas y tomar decisiones con más claridad.</p>
+          </div>
+          <span class="tag">Público objetivo</span>
         </div>
 
-        <div style="height:12px"></div>
+        <div class="grid3">
+          <div class="feature">
+            <div class="feature-top">
+              <div class="icon">1</div>
+              <h3>Personas que viven “al día”</h3>
+            </div>
+            <p>Si el dinero se te va sin entender en qué, aquí construimos un presupuesto realista y prioridades.</p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-top">
+              <div class="icon">2</div>
+              <h3>Quienes quieren ahorrar</h3>
+            </div>
+            <p>Definimos un plan simple de ahorro que se pueda sostener sin sentir que “te asfixia”.</p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-top">
+              <div class="icon">3</div>
+              <h3>Personas con deudas o compras impulsivas</h3>
+            </div>
+            <p>Trabajamos señales de riesgo, decisiones conscientes y control de gasto variable.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ¿Qué aprenderás? (TEMARIO) -->
+    <section id="que-aprendes">
+      <div class="panel section-card">
+        <div class="section-head">
+          <div>
+            <h2>¿Qué aprenderás?</h2>
+            <p class="subtitle">Temario práctico del taller: herramientas simples para tu día a día.</p>
+          </div>
+          <span class="tag">Contenido</span>
+        </div>
 
         <div class="grid2">
           <div class="card">
-            <h3>¿Cómo se llevará a cabo?</h3>
-            <p>
-              A través de un <b>taller comunitario</b> en sesiones breves con actividades aplicables: diagnóstico inicial, contenidos de presupuesto/ahorro/crédito,
-              seguimiento con evidencias y evaluación final. Se utilizarán herramientas digitales para organización, comunicación y resguardo de materiales.
-            </p>
+            <h3>Bloques del taller</h3>
+            <ul class="list">
+              <li>Diagnóstico: en qué se va el dinero y por qué</li>
+              <li>Presupuesto personal: ingresos, gastos fijos y variables</li>
+              <li>Hábitos: cómo sostener cambios sin frustración</li>
+              <li>Ahorro: meta, porcentaje y método (simple)</li>
+              <li>Crédito y deuda: señales de riesgo y prevención</li>
+              <li>Plan semanal: prioridades, gastos hormiga y control</li>
+            </ul>
           </div>
 
-          <figure class="context-img">
-            <img src="assets/img/dinero.jpg" alt="Imagen de contexto: ahorro y dinero" />
-            <figcaption class="img-cap">Imagen de contexto: hábitos de ahorro y planeación.</figcaption>
-          </figure>
+          <div class="card">
+            <h3>Entregables del participante</h3>
+            <ul class="list">
+              <li>Mi primer presupuesto (plantilla simple)</li>
+              <li>Lista de gastos fijos/variables</li>
+              <li>Plan de ahorro con meta y fecha</li>
+              <li>Checklist de decisiones financieras</li>
+            </ul>
+            <div style="height:10px"></div>
+            <span class="badge ok">Aplicable desde el primer día</span>
+            <span class="badge warn">Requiere constancia</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Participar + WhatsApp -->
+    <section id="como-participar">
+      <div class="panel section-card">
+        <div class="section-head">
+          <div>
+            <h2>¿Cómo participar?</h2>
+            <p class="subtitle">El canal principal de coordinación será el grupo de WhatsApp del proyecto.</p>
+          </div>
+          <span class="tag">Convocatoria</span>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Pasos</h3>
+            <ol class="list">
+              <li>Únete al grupo de WhatsApp.</li>
+              <li>Recibe horarios, materiales y recordatorios.</li>
+              <li>Participa en las sesiones y ejercicios.</li>
+              <li>Comparte avances y dudas para seguimiento.</li>
+            </ol>
+            <div style="height:12px"></div>
+            <a class="btn whatsapp" href="https://chat.whatsapp.com/CfMiRI7RqWz1Tb1DVvgPMV" target="_blank" rel="noopener">
+              Unirme al grupo de WhatsApp
+            </a>
+          </div>
+
+          <div class="card">
+            <h3>Reglas rápidas del grupo</h3>
+            <ul class="list">
+              <li>Respeto y comunicación clara</li>
+              <li>Mensajes relacionados al taller</li>
+              <li>Evitar spam y cadenas</li>
+              <li>Compartir evidencias solo del proyecto</li>
+            </ul>
+            <div style="height:10px"></div>
+            <p style="margin:0;color:var(--muted);font-size:13px">
+              El grupo es para coordinar, resolver dudas y mantener seguimiento del taller.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impacto / resultados esperados -->
+    <section id="impacto">
+      <div class="panel section-card">
+        <div class="section-head">
+          <div>
+            <h2>Impacto y resultados esperados</h2>
+            <p class="subtitle">Qué cambia en la vida de las personas cuando ordenan sus finanzas personales.</p>
+          </div>
+          <span class="tag">Beneficios</span>
+        </div>
+
+        <div class="grid3">
+          <div class="feature">
+            <div class="feature-top">
+              <div class="icon">A</div>
+              <h3>Más claridad</h3>
+            </div>
+            <p>Identificar gastos reales y tomar decisiones con información, no con impulso.</p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-top">
+              <div class="icon">B</div>
+              <h3>Mejor planeación</h3>
+            </div>
+            <p>Presupuesto semanal/mensual con prioridades y control de gasto variable.</p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-top">
+              <div class="icon">C</div>
+              <h3>Hábitos sostenibles</h3>
+            </div>
+            <p>Iniciar un hábito de ahorro y reducir el riesgo de deudas no planificadas.</p>
+          </div>
         </div>
 
         <div style="height:12px"></div>
         <div class="callout">
-          <b>Importancia en el contexto comunitario</b>
+          <b>Mensaje clave</b>
           <p>
-            Fortalecer capacidades financieras básicas impacta en la vida cotidiana (priorización de gastos, prevención de deudas, planeación),
-            y puede mejorar bienestar económico y toma de decisiones en el entorno inmediato.
+            El proyecto prioriza el impacto comunitario: ayudar a las personas a tomar decisiones financieras más responsables,
+            con herramientas simples, prácticas y replicables.
           </p>
         </div>
       </div>
     </section>
 
-    <section id="objetivos">
+    <!-- SUSTENTO (al final): fases del módulo -->
+    <section id="sustento">
       <div class="panel section-card">
         <div class="section-head">
           <div>
-            <h2>Objetivos del proyecto</h2>
-            <p class="subtitle">Objetivo general + objetivos específicos alineados a metas y evaluación.</p>
+            <h2>Sustento del proyecto: planeación, gestión y control</h2>
+            <p class="subtitle">Esta sección muestra cómo se estructuró el proyecto por fases (metodología y administración).</p>
           </div>
-          <span class="tag">Logro esperado</span>
+          <span class="tag">Evidencia metodológica</span>
         </div>
 
         <div class="grid2">
-          <div class="feature">
-            <div class="feature-top">
-              <div class="icon">OG</div>
-              <h3>Objetivo general</h3>
-            </div>
+          <div class="card">
+            <h3>Enfoque de gestión</h3>
             <p>
-              Fortalecer los conocimientos de educación financiera básica en la comunidad mediante la implementación de talleres formativos,
-              apoyados en tecnologías emergentes, que contribuyan a una mejor toma de decisiones económicas y al bienestar financiero.
+              Para evitar improvisación y asegurar seguimiento, el proyecto se estructuró con planeación, organización,
+              dirección y control. Esto permite definir actividades, responsables, recursos y estándares para medir y corregir.
             </p>
+            <ul class="list">
+              <li>Actividades y tareas con recursos</li>
+              <li>División del trabajo por perfiles</li>
+              <li>Cronograma (Gantt) y control</li>
+              <li>Estándares y escenarios</li>
+            </ul>
           </div>
 
-          <div class="feature">
-            <div class="feature-top">
-              <div class="icon">OE</div>
-              <h3>Objetivos específicos</h3>
-            </div>
+          <div class="card">
+            <h3>Uso de tecnologías emergentes</h3>
+            <p>
+              Se emplearon herramientas digitales para ordenar información, visualizar procesos y resguardar evidencias
+              de manera clara. Además, GitHub Pages permitió presentar el proyecto públicamente en una web accesible.
+            </p>
             <ul class="list">
-              <li>Diagnosticar conocimientos y prácticas financieras iniciales de los participantes.</li>
-              <li>Diseñar e impartir sesiones prácticas de educación financiera básica.</li>
-              <li>Aplicar tecnologías emergentes para organización, seguimiento y evidencias.</li>
-              <li>Evaluar resultados del taller para identificar aprendizajes y hábitos adquiridos.</li>
+              <li>Organización visual (diagramas)</li>
+              <li>Seguimiento (cronograma)</li>
+              <li>Evidencias centralizadas</li>
+              <li>Publicación web (HTML + Pages)</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="planeacion">
-      <div class="panel section-card">
-        <div class="section-head">
-          <div>
-            <h2>Planeación y gestión</h2>
-            <p class="subtitle">Cronograma (Gantt) y secuencia para coordinar actividades y tiempos.</p>
-          </div>
-          <span class="tag">Fase 5 · Control</span>
-        </div>
-
-        <div class="grid2">
-          <div class="card">
-            <h3>¿Qué aporta el diagrama de Gantt?</h3>
-            <p>
-              Permite visualizar el panorama completo del proyecto, la secuencia de actividades y la duración estimada. Facilita el seguimiento del avance
-              y la detección de desviaciones para actuar a tiempo (medir y corregir).
-            </p>
-          </div>
-
-          <figure class="img-card">
-            <a href="assets/img/gantt.png" target="_blank" rel="noopener">
-              <img src="assets/img/gantt.png" alt="Diagrama de Gantt del proyecto">
-            </a>
-            <figcaption class="img-cap">Diagrama de Gantt (captura). Clic para ver en tamaño completo.</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section id="organizacion">
-      <div class="panel section-card">
-        <div class="section-head">
-          <div>
-            <h2>Organización y división del trabajo</h2>
-            <p class="subtitle">Roles, colaboración y procesos para ejecutar actividades de forma ordenada.</p>
-          </div>
-          <span class="tag">Fase 4 · Dirección</span>
-        </div>
-
-        <div class="grid3">
-          <figure class="img-card">
-            <a href="assets/img/organigrama.png" target="_blank" rel="noopener">
-              <img src="assets/img/organigrama.png" alt="Organigrama del proyecto">
-            </a>
-            <figcaption class="img-cap">Organigrama: roles y apoyos del proyecto. Clic para ampliar.</figcaption>
-          </figure>
-
-          <figure class="img-card">
-            <a href="assets/img/diagrama-flujo.jpg" target="_blank" rel="noopener">
-              <img src="assets/img/diagrama-flujo.jpg" alt="Diagrama de flujo del proceso">
-            </a>
-            <figcaption class="img-cap">Diagrama de flujo del proceso (una fase). Clic para ampliar.</figcaption>
-          </figure>
-
-          <figure class="img-card">
-            <a href="assets/img/tabla-actividades.png" target="_blank" rel="noopener">
-              <img src="assets/img/tabla-actividades.png" alt="Tabla de actividades y recursos">
-            </a>
-            <figcaption class="img-cap">Tabla de actividades/tareas/recursos. Clic para ampliar.</figcaption>
-          </figure>
-        </div>
-
-        <div style="height:14px"></div>
-        <div class="grid2">
-          <div class="card">
-            <h3>¿Por qué es importante dividir el trabajo?</h3>
-            <p>
-              La división del trabajo reduce duplicidad de esfuerzos, asigna responsabilidades claras y permite coordinar tiempos, recursos y evidencias,
-              aumentando la probabilidad de cumplimiento de metas.
-            </p>
-          </div>
-          <div class="card">
-            <h3>¿Es necesario integrar colaboradores?</h3>
-            <p>
-              Sí. La colaboración facilita convocatoria, logística y seguimiento; sin apoyo, podría haber retrasos, menor alcance y disminución de la calidad
-              de la ejecución (por carga operativa en una sola persona).
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="control">
-      <div class="panel section-card">
-        <div class="section-head">
-          <div>
-            <h2>Control: medir y corregir</h2>
-            <p class="subtitle">Escenarios y estándares para detectar desviaciones y mantener condiciones óptimas.</p>
-          </div>
-          <span class="tag">Fase 6 · Control</span>
-        </div>
-
-        <div class="grid2">
-          <div class="feature">
-            <div class="feature-top">
-              <div class="icon">OK</div>
-              <h3>Mejor escenario</h3>
-            </div>
-            <p>
-              Cumplimiento del cronograma, asistencia constante y participación activa. Para mantenerlo: comunicación continua, recordatorios,
-              evidencias por sesión y ajustes menores de logística.
-            </p>
-          </div>
-
-          <div class="feature">
-            <div class="feature-top">
-              <div class="icon">RX</div>
-              <h3>Peor escenario</h3>
-            </div>
-            <p>
-              Baja asistencia, retrasos y pérdida de evidencias. Para corregirlo: reforzar convocatoria, simplificar contenidos, reprogramar sesiones clave
-              y asegurar seguimiento con responsables y registro de avances.
-            </p>
-          </div>
-        </div>
-
-        <div style="height:12px"></div>
-        <div class="card">
-          <h3>Estándares (10) para seguimiento del proyecto</h3>
-          <ol class="list">
-            <li>Cumplimiento del cronograma (Gantt) por semana.</li>
-            <li>Asistencia por sesión (porcentaje de participación).</li>
-            <li>Participación activa en ejercicios prácticos.</li>
-            <li>Sesiones realizadas vs sesiones planeadas.</li>
-            <li>Comprensión del contenido (evaluación breve por sesión).</li>
-            <li>Satisfacción del participante (encuesta corta).</li>
-            <li>Gasto real vs presupuesto simbólico.</li>
-            <li>Disponibilidad de materiales y espacio en cada sesión.</li>
-            <li>Registro de evidencias: lista, fotos, notas y acuerdos.</li>
-            <li>Logro del objetivo general (resultado final y retroalimentación).</li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <section id="tecnologias">
-      <div class="panel section-card">
-        <div class="section-head">
-          <div>
-            <h2>Tecnologías emergentes utilizadas</h2>
-            <p class="subtitle">Herramientas para planear, colaborar, documentar evidencias y presentar resultados.</p>
-          </div>
-          <span class="tag">Aplicación práctica</span>
-        </div>
-
-        <div class="grid3">
-          <div class="feature">
-            <div class="feature-top">
-              <div class="icon">DR</div>
-              <h3>Google Drive</h3>
-            </div>
-            <p>Centraliza documentos, evidencias y materiales del taller; colaboración en tiempo real.</p>
-          </div>
-
-          <div class="feature">
-            <div class="feature-top">
-              <div class="icon">MR</div>
-              <h3>Miro</h3>
-            </div>
-            <p>Apoya la estructuración visual (organigrama/diagramas), acuerdos y planificación colaborativa.</p>
-          </div>
-
-          <div class="feature">
-            <div class="feature-top">
-              <div class="icon">AI</div>
-              <h3>SlideSpeak / IA</h3>
-            </div>
-            <p>Optimiza la comunicación ejecutiva de resultados (síntesis visual y narrativa para presentación).</p>
-          </div>
-        </div>
-
-        <div style="height:12px"></div>
-        <div class="grid2">
-          <div class="card">
-            <h3>Ventajas (2)</h3>
-            <ul class="list">
-              <li>Organización centralizada y trazabilidad de evidencias.</li>
-              <li>Comunicación eficiente para tomar decisiones oportunas.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Desventajas (2)</h3>
-            <ul class="list">
-              <li>Dependencia de conectividad y acceso a dispositivos.</li>
-              <li>Curva de aprendizaje y necesidad de acuerdos de uso.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <!-- Evidencias (al final) -->
     <section id="evidencias">
       <div class="panel section-card">
         <div class="section-head">
           <div>
-            <h2>Evidencias del proyecto</h2>
-            <p class="subtitle">Productos integrados en la página web para socializar el trabajo del módulo.</p>
+            <h2>Evidencias gráficas</h2>
+            <p class="subtitle">Documentos visuales integrados al sitio (clic para ver en tamaño completo).</p>
           </div>
           <span class="tag">Portafolio</span>
         </div>
 
-        <div class="evidence-grid">
+        <div class="grid3">
           <figure class="img-card">
             <a href="assets/img/tabla-actividades.png" target="_blank" rel="noopener">
-              <img src="assets/img/tabla-actividades.png" alt="Tabla de actividades del proyecto">
+              <img src="assets/img/tabla-actividades.png" alt="Tabla de actividades y recursos">
             </a>
-            <figcaption class="img-cap">Tabla de actividades/tareas/recursos (Fase 3).</figcaption>
+            <figcaption class="img-cap">Tabla de actividades, tareas y recursos.</figcaption>
           </figure>
 
           <figure class="img-card">
             <a href="assets/img/organigrama.png" target="_blank" rel="noopener">
               <img src="assets/img/organigrama.png" alt="Organigrama del proyecto">
             </a>
-            <figcaption class="img-cap">Organigrama (Fase 4: división del trabajo).</figcaption>
+            <figcaption class="img-cap">Organigrama (división del trabajo).</figcaption>
           </figure>
 
           <figure class="img-card">
             <a href="assets/img/diagrama-flujo.jpg" target="_blank" rel="noopener">
-              <img src="assets/img/diagrama-flujo.jpg" alt="Diagrama de flujo del proceso del proyecto">
+              <img src="assets/img/diagrama-flujo.jpg" alt="Diagrama de flujo">
             </a>
-            <figcaption class="img-cap">Diagrama de flujo (Fase 3: proceso).</figcaption>
-          </figure>
-
-          <figure class="img-card">
-            <a href="assets/img/gantt.png" target="_blank" rel="noopener">
-              <img src="assets/img/gantt.png" alt="Diagrama de Gantt del proyecto">
-            </a>
-            <figcaption class="img-cap">Diagrama de Gantt (Fase 5: control del proyecto).</figcaption>
+            <figcaption class="img-cap">Diagrama de flujo (proceso).</figcaption>
           </figure>
         </div>
 
         <div style="height:14px"></div>
-        <div class="card">
-          <h3>Galería de contexto (imágenes adicionales)</h3>
-          <p style="margin:0;color:var(--muted);font-size:13px">
-            Estas imágenes fortalecen la presentación visual del proyecto (sin sustituir evidencias).
-          </p>
-          <div style="height:12px"></div>
-          <div class="grid3">
-            <figure class="img-card">
-              <a href="assets/img/taller.jpg" target="_blank" rel="noopener">
-                <img src="assets/img/taller.jpg" alt="Imagen de contexto: taller">
-              </a>
-              <figcaption class="img-cap">Taller comunitario (contexto visual).</figcaption>
-            </figure>
-            <figure class="img-card">
-              <a href="assets/img/finanzas.jpg" target="_blank" rel="noopener">
-                <img src="assets/img/finanzas.jpg" alt="Imagen de contexto: finanzas">
-              </a>
-              <figcaption class="img-cap">Educación financiera (contexto visual).</figcaption>
-            </figure>
-            <figure class="img-card">
-              <a href="assets/img/dinero.jpg" target="_blank" rel="noopener">
-                <img src="assets/img/dinero.jpg" alt="Imagen de contexto: dinero y ahorro">
-              </a>
-              <figcaption class="img-cap">Ahorro y dinero (contexto visual).</figcaption>
-            </figure>
+
+        <div class="grid2">
+          <figure class="img-card">
+            <a href="assets/img/gantt.png" target="_blank" rel="noopener">
+              <img src="assets/img/gantt.png" alt="Diagrama de Gantt">
+            </a>
+            <figcaption class="img-cap">Diagrama de Gantt (seguimiento y control).</figcaption>
+          </figure>
+
+          <div class="card">
+            <h3>Nota técnica</h3>
+            <p>
+              Todas las imágenes usan la ruta <b>assets/img/</b>. Si en algún momento no cargan, verifica:
+              (1) que el nombre del archivo coincida (mayúsculas/minúsculas) y (2) que esté dentro de esa carpeta.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Referencias -->
     <section id="referencias">
       <div class="panel section-card">
         <div class="section-head">
           <div>
-            <h2>Referencias </h2>
-            <p class="subtitle">Sustento del módulo y fuentes consultadas (puedo ayudarte a completarlas con enlaces específicos).</p>
+            <h2>Referencias</h2>
+            <p class="subtitle">Fuentes y autoría del proyecto (puedes ampliar con tus referencias APA 7 finales).</p>
           </div>
-          <span class="tag">Evidencia académica</span>
+          <span class="tag">APA 7</span>
         </div>
 
         <div class="card">
           <ul class="list">
-            <li>Prepa en Línea SEP. (2026). <i>Módulo 23. Unidad III: Las tecnologías emergentes en la administración y gestión</i>. https://prepaenlinea.sep.gob.mx/</li>
+            <li>Prepa en Línea SEP. (2026). Módulo 23. Unidad III: Las tecnologías emergentes en la administración y gestión. https://prepaenlinea.sep.gob.mx/</li>
           </ul>
           <p style="margin:10px 0 0;color:var(--muted);font-size:13px">
-            <b>Autor:</b> Yurdiell Ezequiel Santillán Martínez · <b>Grupo:</b> M23C2G56-023
+            Autor: Yurdiell Ezequiel Santillán Martínez · Grupo: M23C2G56-023
           </p>
         </div>
       </div>
     </section>
 
     <footer>
-      Sitio Web elaborado como evidencia final del Módulo 23 (Prepa en Línea SEP). Diseño responsivo, navegación por secciones y evidencias gráficas integradas.
+      Sitio Web del proyecto “Finanzas para la Vida”. Enfoque comunitario y evidencia metodológica al final. Publicado en GitHub Pages.
     </footer>
   </main>
 </body>
