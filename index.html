@@ -7,7 +7,7 @@
   <title>Finanzas para la Vida | Taller Comunitario de Educación Financiera Básica</title>
   <meta name="description" content="Proyecto comunitario de educación financiera personal: presupuesto, ahorro y decisiones responsables. Participa vía WhatsApp y consulta evidencias del proyecto." />
 
-  <!-- Base recomendada para GitHub Pages (mantiene rutas estables en navegación) -->
+  <!-- Recomendado para GitHub Pages en repo /Finanzas-para-la-vida/ -->
   <base href="https://ezequielsantillan-pels.github.io/Finanzas-para-la-vida/">
 
   <style>
@@ -20,17 +20,14 @@
       --line:rgba(255,255,255,.12);
       --blue:#7aa7ff;
       --blue2:#4f7dff;
-      --gray:#cbd5e1;
       --shadow: 0 18px 45px rgba(0,0,0,.35);
       --radius:18px;
       --max:1140px;
-
       --ok: rgba(82,233,161,.18);
       --okLine: rgba(82,233,161,.25);
       --warn: rgba(255,199,0,.16);
       --warnLine: rgba(255,199,0,.25);
     }
-
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
@@ -44,7 +41,6 @@
         radial-gradient(1100px 800px at 50% 96%, rgba(122,167,255,.10), transparent 60%),
         var(--bg);
     }
-
     a{color:var(--blue); text-decoration:none}
     a:hover{text-decoration:underline}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
@@ -118,6 +114,14 @@
       font-size:13px;
     }
 
+    /* Panels */
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+    }
+
     /* Hero */
     .hero{padding:44px 0 22px;}
     .hero-grid{
@@ -125,12 +129,6 @@
       grid-template-columns: 1.10fr .90fr;
       gap:18px;
       align-items:stretch;
-    }
-    .panel{
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow: var(--shadow);
     }
     .hero-left{padding:24px}
     .pill{
@@ -172,11 +170,6 @@
     .btn.whatsapp{
       background: rgba(82,233,161,.16);
       border-color: rgba(82,233,161,.22);
-    }
-    .btn .dot{
-      width:8px; height:8px; border-radius:999px;
-      background: var(--blue);
-      box-shadow: 0 0 0 6px rgba(122,167,255,.15);
     }
 
     .hero-right{
@@ -226,7 +219,6 @@
     }
     .metric b{display:block; font-size:13px}
     .metric span{display:block; margin-top:5px; font-size:12px; color:var(--muted)}
-    .metric small{display:block; margin-top:8px; font-size:11px; color:rgba(183,196,230,.85)}
 
     section{padding:18px 0}
     .section-card{padding:18px}
@@ -275,16 +267,6 @@
       box-shadow: 0 10px 30px rgba(79,125,255,.15);
       flex:0 0 auto;
     }
-    .badge{
-      display:inline-flex; gap:8px; align-items:center;
-      font-size:12px; color:var(--muted);
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-    }
-    .badge.ok{background: var(--ok); border-color: var(--okLine);}
-    .badge.warn{background: var(--warn); border-color: var(--warnLine);}
 
     .list{margin:10px 0 0 18px; color:var(--muted)}
     .list li{margin:6px 0}
@@ -313,6 +295,12 @@
     }
     .callout b{display:block; margin-bottom:6px}
     .callout p{margin:0; color:var(--muted); font-size:13px}
+
+    .divider{
+      margin-top:8px;
+      border-top:1px dashed rgba(255,255,255,.18);
+      padding-top:14px;
+    }
 
     footer{
       padding:26px 0 34px;
@@ -350,11 +338,10 @@
         <div class="logo" aria-hidden="true"></div>
         <div class="meta">
           <b>Finanzas para la Vida</b>
-          <span>Taller comunitario · Educación financiera personal</span>
+          <span>Proyecto comunitario de educación financiera personal</span>
         </div>
       </div>
 
-      <!-- Navegación: primero público final, al final evidencias/módulo -->
       <nav class="navlinks" aria-label="Secciones">
         <a href="#inicio">Inicio</a>
         <a href="#que-es">¿Qué es?</a>
@@ -364,6 +351,7 @@
         <a href="#impacto">Impacto</a>
         <a href="#sustento">Sustento</a>
         <a href="#evidencias">Evidencias</a>
+        <a href="#video">Video</a>
         <a href="#referencias">Referencias</a>
       </nav>
 
@@ -378,6 +366,7 @@
           <a href="#impacto">Impacto</a>
           <a href="#sustento">Sustento</a>
           <a href="#evidencias">Evidencias</a>
+          <a href="#video">Video</a>
           <a href="#referencias">Referencias</a>
         </nav>
       </details>
@@ -385,16 +374,16 @@
   </header>
 
   <main class="wrap">
-    <!-- HERO: público final -->
+
+    <!-- 1) #inicio -->
     <section class="hero" id="inicio">
       <div class="hero-grid">
         <div class="panel hero-left">
           <div class="pill">Proyecto comunitario abierto</div>
-          <h1>Finanzas para la Vida</h1>
+          <h1>Finanzas para la Vida: Taller Comunitario de Educación Financiera Básica</h1>
           <p class="lead">
-            Taller comunitario de educación financiera personal para aprender a organizar el dinero,
-            reducir gastos impulsivos, fortalecer el hábito del ahorro y tomar decisiones responsables
-            sobre el uso del crédito.
+            Taller práctico para aprender a organizar el dinero, construir un presupuesto realista, iniciar un hábito de ahorro
+            y tomar decisiones responsables sobre gastos y crédito. El enfoque es simple, aplicable y útil para la vida diaria.
           </p>
 
           <div class="hero-cta">
@@ -402,16 +391,16 @@
               Unirme al grupo de WhatsApp
             </a>
             <a class="btn secondary" href="#que-aprendes">Ver temario del taller</a>
-            <a class="btn" href="#sustento"><span class="dot" aria-hidden="true"></span> Ver sustento del proyecto</a>
+            <a class="btn" href="#evidencias">Ver evidencias</a>
           </div>
 
           <div style="height:14px"></div>
 
           <div class="callout">
-            <b>Promesa del proyecto</b>
+            <b>Propósito del proyecto</b>
             <p>
-              En pocas sesiones, tendrás una guía práctica para: (1) identificar en qué se te va el dinero,
-              (2) crear un presupuesto realista y (3) definir un plan simple de ahorro y prioridades.
+              Fortalecer habilidades financieras básicas en la comunidad para mejorar la planeación del gasto, promover el ahorro
+              y reducir decisiones impulsivas que afectan la economía personal y familiar.
             </p>
           </div>
         </div>
@@ -433,120 +422,108 @@
           <div class="metric">
             <b>Enfoque</b>
             <span>Finanzas personales: presupuesto, ahorro, hábitos y decisiones.</span>
-            <small>Aprendizaje práctico, sin tecnicismos.</small>
           </div>
           <div class="metric">
             <b>Formato</b>
             <span>Sesiones breves + ejercicios + seguimiento por WhatsApp.</span>
-            <small>Materiales y recordatorios centralizados.</small>
           </div>
           <div class="metric">
             <b>Resultado esperado</b>
             <span>Más claridad financiera y mejores decisiones semana a semana.</span>
-            <small>Pequeños cambios sostenibles.</small>
           </div>
         </aside>
       </div>
     </section>
 
-    <!-- ¿Qué es? -->
+    <!-- 2) #que-es -->
     <section id="que-es">
       <div class="panel section-card">
         <div class="section-head">
           <div>
             <h2>¿Qué es Finanzas para la Vida?</h2>
-            <p class="subtitle">Un taller comunitario de educación financiera básica, diseñado para la vida real.</p>
+            <p class="subtitle">Un taller comunitario diseñado para fortalecer educación financiera básica con enfoque práctico.</p>
           </div>
-          <span class="tag">Proyecto comunitario</span>
+          <span class="tag">Proyecto</span>
         </div>
 
         <div class="grid2">
           <div class="card">
             <h3>Idea central</h3>
             <p>
-              “Finanzas para la Vida” es un taller que busca que las personas puedan administrar mejor su ingreso,
-              priorizar gastos, planear compras, iniciar un hábito de ahorro y reducir decisiones financieras impulsivas.
-              Se trabaja con ejemplos cotidianos y herramientas simples.
+              Un espacio breve, claro y aplicable para aprender a administrar el ingreso, identificar gastos, priorizar necesidades,
+              iniciar un hábito de ahorro y prevenir decisiones financieras riesgosas.
             </p>
-            <ul class="list">
-              <li>Sin lenguaje complicado</li>
-              <li>Enfoque 100% práctico</li>
-              <li>Aplicable desde la primera sesión</li>
-            </ul>
           </div>
 
           <div class="card">
-            <h3>Propósito principal</h3>
+            <h3>Propósito</h3>
             <p>
-              Fortalecer habilidades financieras básicas que impacten positivamente en la economía personal y familiar,
-              promoviendo hábitos responsables que mejoren el bienestar y la toma de decisiones en la comunidad.
+              Generar cambios sostenibles en hábitos financieros de la comunidad, mediante herramientas simples
+              que se puedan aplicar desde la primera sesión.
             </p>
-            <div style="height:10px"></div>
-            <span class="badge ok">Orientado a resultados</span>
-            <span class="badge">Acompañamiento por WhatsApp</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ¿Para quién? -->
+    <!-- 3) #para-quien -->
     <section id="para-quien">
       <div class="panel section-card">
         <div class="section-head">
           <div>
             <h2>¿Para quién es este taller?</h2>
-            <p class="subtitle">Pensado para personas que quieren ordenar sus finanzas y tomar decisiones con más claridad.</p>
+            <p class="subtitle">Pensado para personas que quieren ordenar sus finanzas personales y tomar mejores decisiones.</p>
           </div>
-          <span class="tag">Público objetivo</span>
+          <span class="tag">Comunidad</span>
         </div>
 
         <div class="grid3">
           <div class="feature">
             <div class="feature-top">
               <div class="icon">1</div>
-              <h3>Personas que viven “al día”</h3>
+              <h3>Quienes quieren controlar sus gastos</h3>
             </div>
-            <p>Si el dinero se te va sin entender en qué, aquí construimos un presupuesto realista y prioridades.</p>
+            <p>Si el dinero “se va” sin identificar en qué, aquí se construye claridad y control.</p>
           </div>
 
           <div class="feature">
             <div class="feature-top">
               <div class="icon">2</div>
-              <h3>Quienes quieren ahorrar</h3>
+              <h3>Quienes desean iniciar un ahorro</h3>
             </div>
-            <p>Definimos un plan simple de ahorro que se pueda sostener sin sentir que “te asfixia”.</p>
+            <p>Se plantea una meta simple, medible y realista, con seguimiento.</p>
           </div>
 
           <div class="feature">
             <div class="feature-top">
               <div class="icon">3</div>
-              <h3>Personas con deudas o compras impulsivas</h3>
+              <h3>Quienes buscan prevenir deuda riesgosa</h3>
             </div>
-            <p>Trabajamos señales de riesgo, decisiones conscientes y control de gasto variable.</p>
+            <p>Se identifican señales de riesgo y decisiones responsables sobre crédito.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ¿Qué aprenderás? (TEMARIO) -->
+    <!-- 4) #que-aprendes -->
     <section id="que-aprendes">
       <div class="panel section-card">
         <div class="section-head">
           <div>
             <h2>¿Qué aprenderás?</h2>
-            <p class="subtitle">Temario práctico del taller: herramientas simples para tu día a día.</p>
+            <p class="subtitle">Temario práctico con herramientas simples para tu vida diaria.</p>
           </div>
-          <span class="tag">Contenido</span>
+          <span class="tag">Temario</span>
         </div>
 
         <div class="grid2">
           <div class="card">
             <h3>Bloques del taller</h3>
             <ul class="list">
-              <li>Diagnóstico: en qué se va el dinero y por qué</li>
+              <li>Diagnóstico de gastos: en qué se va el dinero y por qué</li>
               <li>Presupuesto personal: ingresos, gastos fijos y variables</li>
               <li>Hábitos: cómo sostener cambios sin frustración</li>
-              <li>Ahorro: meta, porcentaje y método (simple)</li>
+              <li>Ahorro: meta, porcentaje y método simple</li>
               <li>Crédito y deuda: señales de riesgo y prevención</li>
               <li>Plan semanal: prioridades, gastos hormiga y control</li>
             </ul>
@@ -555,20 +532,17 @@
           <div class="card">
             <h3>Entregables del participante</h3>
             <ul class="list">
-              <li>Mi primer presupuesto (plantilla simple)</li>
+              <li>Presupuesto personal (plantilla simple)</li>
               <li>Lista de gastos fijos/variables</li>
               <li>Plan de ahorro con meta y fecha</li>
               <li>Checklist de decisiones financieras</li>
             </ul>
-            <div style="height:10px"></div>
-            <span class="badge ok">Aplicable desde el primer día</span>
-            <span class="badge warn">Requiere constancia</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Participar + WhatsApp -->
+    <!-- 5) #como-participar -->
     <section id="como-participar">
       <div class="panel section-card">
         <div class="section-head">
@@ -585,8 +559,8 @@
             <ol class="list">
               <li>Únete al grupo de WhatsApp.</li>
               <li>Recibe horarios, materiales y recordatorios.</li>
-              <li>Participa en las sesiones y ejercicios.</li>
-              <li>Comparte avances y dudas para seguimiento.</li>
+              <li>Participa en sesiones y ejercicios.</li>
+              <li>Comparte dudas y avances para seguimiento.</li>
             </ol>
             <div style="height:12px"></div>
             <a class="btn whatsapp" href="https://chat.whatsapp.com/CfMiRI7RqWz1Tb1DVvgPMV" target="_blank" rel="noopener">
@@ -600,26 +574,26 @@
               <li>Respeto y comunicación clara</li>
               <li>Mensajes relacionados al taller</li>
               <li>Evitar spam y cadenas</li>
-              <li>Compartir evidencias solo del proyecto</li>
+              <li>Seguimiento y evidencias del proyecto</li>
             </ul>
-            <div style="height:10px"></div>
+            <div class="divider"></div>
             <p style="margin:0;color:var(--muted);font-size:13px">
-              El grupo es para coordinar, resolver dudas y mantener seguimiento del taller.
+              El grupo se usa para coordinación, dudas y acompañamiento.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Impacto / resultados esperados -->
+    <!-- 6) #impacto -->
     <section id="impacto">
       <div class="panel section-card">
         <div class="section-head">
           <div>
-            <h2>Impacto y resultados esperados</h2>
-            <p class="subtitle">Qué cambia en la vida de las personas cuando ordenan sus finanzas personales.</p>
+            <h2>Impacto comunitario</h2>
+            <p class="subtitle">Beneficios esperados al fortalecer educación financiera personal en la comunidad.</p>
           </div>
-          <span class="tag">Beneficios</span>
+          <span class="tag">Resultados</span>
         </div>
 
         <div class="grid3">
@@ -634,7 +608,7 @@
           <div class="feature">
             <div class="feature-top">
               <div class="icon">B</div>
-              <h3>Mejor planeación</h3>
+              <h3>Planeación realista</h3>
             </div>
             <p>Presupuesto semanal/mensual con prioridades y control de gasto variable.</p>
           </div>
@@ -644,7 +618,7 @@
               <div class="icon">C</div>
               <h3>Hábitos sostenibles</h3>
             </div>
-            <p>Iniciar un hábito de ahorro y reducir el riesgo de deudas no planificadas.</p>
+            <p>Iniciar ahorro y reducir riesgo de deuda no planificada.</p>
           </div>
         </div>
 
@@ -652,63 +626,408 @@
         <div class="callout">
           <b>Mensaje clave</b>
           <p>
-            El proyecto prioriza el impacto comunitario: ayudar a las personas a tomar decisiones financieras más responsables,
-            con herramientas simples, prácticas y replicables.
+            Este sitio presenta el proyecto al público final. Más abajo se incluye el sustento metodológico completo
+            (fases, herramientas y evidencias) como respaldo académico del Módulo 23.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- SUSTENTO (al final): fases del módulo -->
+    <!-- 7) #sustento -->
     <section id="sustento">
       <div class="panel section-card">
         <div class="section-head">
           <div>
-            <h2>Sustento del proyecto: planeación, gestión y control</h2>
-            <p class="subtitle">Esta sección muestra cómo se estructuró el proyecto por fases (metodología y administración).</p>
+            <h2>Sustento académico y gestión del proyecto</h2>
+            <p class="subtitle">
+              En esta sección se presenta el desarrollo del proyecto por fases (planeación, organización, dirección y control),
+              incluyendo herramientas y evidencias como respaldo metodológico.
+            </p>
           </div>
-          <span class="tag">Evidencia metodológica</span>
+          <span class="tag">Módulo 23</span>
         </div>
 
         <div class="grid2">
           <div class="card">
-            <h3>Enfoque de gestión</h3>
+            <h3>Propósito de esta sección</h3>
             <p>
-              Para evitar improvisación y asegurar seguimiento, el proyecto se estructuró con planeación, organización,
-              dirección y control. Esto permite definir actividades, responsables, recursos y estándares para medir y corregir.
+              Mostrar cómo se administró y gestionó el proyecto: actividades, responsables, recursos, cronograma y estándares
+              para dar seguimiento y corregir desviaciones.
             </p>
-            <ul class="list">
-              <li>Actividades y tareas con recursos</li>
-              <li>División del trabajo por perfiles</li>
-              <li>Cronograma (Gantt) y control</li>
-              <li>Estándares y escenarios</li>
-            </ul>
           </div>
-
           <div class="card">
-            <h3>Uso de tecnologías emergentes</h3>
-            <p>
-              Se emplearon herramientas digitales para ordenar información, visualizar procesos y resguardar evidencias
-              de manera clara. Además, GitHub Pages permitió presentar el proyecto públicamente en una web accesible.
-            </p>
+            <h3>Contenido</h3>
             <ul class="list">
-              <li>Organización visual (diagramas)</li>
-              <li>Seguimiento (cronograma)</li>
-              <li>Evidencias centralizadas</li>
-              <li>Publicación web (HTML + Pages)</li>
+              <li>Descripción del proyecto y objetivos</li>
+              <li>Planeación y división del trabajo</li>
+              <li>Control (escenarios, estándares y acciones)</li>
+              <li>Tecnologías empleadas y evidencias (tabla, Gantt, organigrama y flujo)</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Evidencias (al final) -->
+    <!-- 8) #proyecto -->
+    <section id="proyecto">
+      <div class="panel section-card">
+        <div class="section-head">
+          <div>
+            <h2>Descripción del proyecto</h2>
+            <p class="subtitle">
+              Finanzas para la Vida es un taller comunitario de educación financiera básica enfocado en hábitos prácticos:
+              presupuesto, control de gastos, ahorro y toma de decisiones responsables sobre crédito.
+            </p>
+          </div>
+          <span class="tag">Contexto</span>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Problema que atiende</h3>
+            <p>
+              En la vida cotidiana es común que las personas administren su dinero “al día”, sin un registro claro de ingresos y
+              gastos, lo que dificulta el ahorro, incrementa el estrés financiero y puede llevar a decisiones impulsivas (por
+              ejemplo, compras no planificadas o uso desordenado del crédito). Esta situación limita la estabilidad personal y
+              familiar, y afecta la capacidad de enfrentar imprevistos.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Propósito</h3>
+            <p>
+              Fortalecer capacidades financieras básicas en la comunidad mediante sesiones breves y ejercicios sencillos que
+              permitan: identificar patrones de gasto, construir un presupuesto realista, establecer una meta de ahorro y
+              aplicar criterios de decisión para evitar endeudamiento riesgoso.
+            </p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Cómo se implementa</h3>
+            <ul class="list">
+              <li>Sesiones prácticas (3–4) con ejercicios guiados.</li>
+              <li>Plantillas simples: presupuesto, clasificación de gastos y meta de ahorro.</li>
+              <li>Coordinación por WhatsApp para recordatorios, materiales y seguimiento.</li>
+              <li>Materiales digitales compartidos para consulta y evidencias.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Alcance e impacto esperado</h3>
+            <ul class="list">
+              <li>Mayor claridad sobre el uso del dinero (qué, cuánto y por qué se gasta).</li>
+              <li>Un presupuesto personal funcional y revisable.</li>
+              <li>Una meta de ahorro medible con seguimiento.</li>
+              <li>Mejores decisiones sobre gastos y crédito, reduciendo riesgos financieros.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9) #objetivos -->
+    <section id="objetivos">
+      <div class="panel section-card">
+        <div class="section-head">
+          <div>
+            <h2>Objetivos del proyecto</h2>
+            <p class="subtitle">
+              Los objetivos están redactados con enfoque de acción y medición, alineados a la implementación comunitaria del taller.
+            </p>
+          </div>
+          <span class="tag">Objetivos</span>
+        </div>
+
+        <div class="card">
+          <h3>Objetivo general</h3>
+          <p>
+            Fortalecer, a partir del 28 de febrero, las habilidades de educación financiera básica de participantes de la comunidad
+            mediante un taller práctico de 3–4 sesiones, utilizando recursos digitales accesibles, para mejorar el control del gasto,
+            iniciar un hábito de ahorro y promover decisiones responsables sobre crédito.
+          </p>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Objetivos específicos</h3>
+            <ol class="list">
+              <li>
+                Identificar los principales patrones de gasto de los participantes mediante un diagnóstico inicial y el registro
+                de gastos (fijos y variables) para reconocer áreas de ajuste.
+              </li>
+              <li>
+                Diseñar un presupuesto personal realista con base en ingresos y gastos, estableciendo prioridades y límites semanales
+                o mensuales para fortalecer el control financiero.
+              </li>
+              <li>
+                Establecer una meta de ahorro medible y alcanzable, definiendo un porcentaje o cantidad periódica y un mecanismo de
+                seguimiento para consolidar el hábito.
+              </li>
+            </ol>
+          </div>
+
+          <div class="card">
+            <h3>Metas asociadas</h3>
+            <ul class="list">
+              <li>Al finalizar la primera sesión, cada participante registra sus gastos principales y los clasifica.</li>
+              <li>Al finalizar la segunda sesión, cada participante cuenta con un presupuesto personal completo.</li>
+              <li>Al finalizar la tercera o cuarta sesión, cada participante define una meta de ahorro y un plan de seguimiento.</li>
+              <li>Durante el proceso, se comparte al menos un material digital por sesión (plantilla/guía) para reforzar el aprendizaje.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10) #planeacion -->
+    <section id="planeacion">
+      <div class="panel section-card">
+        <div class="section-head">
+          <div>
+            <h2>Planeación y gestión</h2>
+            <p class="subtitle">
+              La planeación define actividades, recursos, responsables y tiempos para asegurar que el taller sea ejecutable,
+              medible y replicable.
+            </p>
+          </div>
+          <span class="tag">Planeación</span>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Enfoque de planeación</h3>
+            <p>
+              El proyecto se gestiona como un microproyecto comunitario: acciones concretas, duración corta y recursos limitados,
+              priorizando claridad en tareas, comunicación y seguimiento. Se parte del objetivo general y se desglosan objetivos
+              específicos en metas con evidencia verificable.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Qué se planifica</h3>
+            <ul class="list">
+              <li>Diseño del contenido (temario, ejercicios y plantillas).</li>
+              <li>Convocatoria y vinculación (WhatsApp como canal principal).</li>
+              <li>Logística (fechas, espacio o modalidad, materiales).</li>
+              <li>Seguimiento (registro, estándares y evidencias).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Criterios clave</h3>
+            <ul class="list">
+              <li>Accesibilidad: herramientas gratuitas o de uso común.</li>
+              <li>Usabilidad: plantillas simples y comunicación clara.</li>
+              <li>Medición: metas observables (presupuesto y meta de ahorro).</li>
+              <li>Continuidad: seguimiento mínimo posterior al taller.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Gestión del proyecto</h3>
+            <p>
+              Para asegurar control y transparencia, se documentan actividades (tabla), secuencia (Gantt) y procesos clave
+              (diagrama de flujo), permitiendo identificar desviaciones, corregirlas y dejar evidencia del avance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11) #organizacion -->
+    <section id="organizacion">
+      <div class="panel section-card">
+        <div class="section-head">
+          <div>
+            <h2>Organización y división del trabajo</h2>
+            <p class="subtitle">
+              La división del trabajo permite asignar funciones, reducir duplicidad de esfuerzos y asegurar que el taller se ejecute
+              con orden y seguimiento.
+            </p>
+          </div>
+          <span class="tag">Organización</span>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Roles sugeridos</h3>
+            <ul class="list">
+              <li><b>Coordinación general:</b> organiza agenda, convoca, dirige sesiones y valida evidencias.</li>
+              <li><b>Apoyo logístico:</b> lista de asistencia, espacio/materiales, recordatorios y control de tiempos.</li>
+              <li><b>Gestión de comunicación:</b> administración de WhatsApp, difusión de materiales y dudas frecuentes.</li>
+              <li><b>Documentación:</b> resguardo de evidencias (tablas, imágenes, enlaces) y orden del repositorio.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Perfil de colaboradores</h3>
+            <ul class="list">
+              <li>Responsabilidad y constancia (seguimiento semanal).</li>
+              <li>Comunicación clara y respetuosa con la comunidad.</li>
+              <li>Manejo básico de herramientas digitales (Drive/WhatsApp/Docs).</li>
+              <li>Interés por apoyar el aprendizaje práctico (no teoría excesiva).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="card">
+          <h3>Por qué es necesaria la colaboración</h3>
+          <p>
+            Integrar colaboradores incrementa la calidad del proyecto: mejora la convocatoria, evita carga operativa excesiva en una
+            sola persona y fortalece la continuidad del seguimiento. Sin colaboradores, se elevaría el riesgo de retrasos,
+            pérdida de evidencias o falta de respuesta oportuna a los participantes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12) #control -->
+    <section id="control">
+      <div class="panel section-card">
+        <div class="section-head">
+          <div>
+            <h2>Control: medir y corregir</h2>
+            <p class="subtitle">
+              El control permite verificar si el proyecto avanza conforme a lo planeado, detectar desviaciones y aplicar correcciones
+              a tiempo para cumplir objetivos y metas.
+            </p>
+          </div>
+          <span class="tag">Control</span>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Mejor escenario</h3>
+            <p>
+              Alta participación, asistencia constante, entrega de ejercicios y adopción de hábitos (presupuesto y ahorro) con
+              seguimiento activo por WhatsApp.
+            </p>
+            <div class="divider"></div>
+            <p>
+              <b>Acciones para mantenerlo:</b> recordatorios claros, materiales simples, retroalimentación breve por sesión y
+              reconocimiento de avances (checklist de logros).
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Peor escenario</h3>
+            <p>
+              Baja participación, abandono por falta de tiempo, confusión con materiales o resistencia a registrar gastos.
+            </p>
+            <div class="divider"></div>
+            <p>
+              <b>Acciones correctivas:</b> simplificar ejercicios, reducir carga de tareas, usar ejemplos cotidianos, ajustar horarios
+              y reforzar el valor práctico del presupuesto.
+            </p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Estándares de seguimiento</h3>
+            <ul class="list">
+              <li>Asistencia por sesión (número de participantes y permanencia).</li>
+              <li>Entrega de ejercicios (presupuesto completo, registro de gastos y meta de ahorro).</li>
+              <li>Tiempo real vs plan (cumplimiento del calendario).</li>
+              <li>Satisfacción básica (retroalimentación breve).</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Corrección y retroalimentación</h3>
+            <p>
+              Si se detectan desviaciones (baja entrega o confusión), se ajusta el material a un formato más simple, se refuerza la
+              comunicación con ejemplos y se reprograma una actividad puntual de apoyo, manteniendo evidencia de cambios y resultados.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13) #tecnologias -->
+    <section id="tecnologias">
+      <div class="panel section-card">
+        <div class="section-head">
+          <div>
+            <h2>Tecnologías emergentes utilizadas</h2>
+            <p class="subtitle">
+              Herramientas para comunicar, organizar evidencias y gestionar el avance del proyecto con accesibilidad para la comunidad.
+            </p>
+          </div>
+          <span class="tag">Tecnología</span>
+        </div>
+
+        <div class="grid3">
+          <div class="feature">
+            <div class="feature-top">
+              <div class="icon">W</div>
+              <h3>WhatsApp</h3>
+            </div>
+            <p>Canal principal para convocatoria, recordatorios, seguimiento y coordinación comunitaria.</p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-top">
+              <div class="icon">D</div>
+              <h3>Google Drive / Docs</h3>
+            </div>
+            <p>Resguardo de materiales, plantillas y evidencias con acceso ordenado para consulta.</p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-top">
+              <div class="icon">M</div>
+              <h3>Miro</h3>
+            </div>
+            <p>Organización visual: diagramas, perfiles/organigrama y procesos de las fases del proyecto.</p>
+          </div>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Ventajas</h3>
+            <ul class="list">
+              <li>Accesibilidad: herramientas comunes y disponibles en móvil.</li>
+              <li>Colaboración: edición/consulta de materiales y evidencias.</li>
+              <li>Seguimiento: orden de avances y control del proyecto.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Desventajas / Riesgos y mitigación</h3>
+            <ul class="list">
+              <li>Brecha digital: participantes con baja familiaridad → materiales simples y guía paso a paso.</li>
+              <li>Saturación de mensajes: WhatsApp → reglas claras y resúmenes por sesión.</li>
+              <li>Dependencia de internet: alternativas → entrega de plantillas ligeras e instrucciones claras.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14) #evidencias -->
     <section id="evidencias">
       <div class="panel section-card">
         <div class="section-head">
           <div>
-            <h2>Evidencias gráficas</h2>
-            <p class="subtitle">Documentos visuales integrados al sitio (clic para ver en tamaño completo).</p>
+            <h2>Evidencias del proyecto</h2>
+            <p class="subtitle">Materiales principales para documentar la organización, ejecución y control del proyecto.</p>
           </div>
           <span class="tag">Portafolio</span>
         </div>
@@ -749,30 +1068,90 @@
           <div class="card">
             <h3>Nota técnica</h3>
             <p>
-              Todas las imágenes usan la ruta <b>assets/img/</b>. Si en algún momento no cargan, verifica:
-              (1) que el nombre del archivo coincida (mayúsculas/minúsculas) y (2) que esté dentro de esa carpeta.
+              Si alguna imagen no carga, valida que el nombre coincida exactamente (mayúsculas/minúsculas) y que esté dentro de
+              <b>assets/img/</b>. En GitHub Pages, si el cambio no se refleja, usa <b>Ctrl + F5</b>.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Referencias -->
+    <!-- 15) #video -->
+    <section id="video">
+      <div class="panel section-card">
+        <div class="section-head">
+          <div>
+            <h2>Video de presentación</h2>
+            <p class="subtitle">
+              Enlace al video donde se presenta el proyecto, su objetivo/justificación, tecnologías usadas y un recorrido por el sitio.
+            </p>
+          </div>
+          <span class="tag">Entrega final</span>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Enlace del video</h3>
+            <p style="margin:0;color:var(--muted);font-size:13px">
+              Pega aquí tu enlace (YouTube o Drive) cuando lo tengas:
+            </p>
+            <div style="height:10px"></div>
+            <p style="margin:0">
+              <a href="#" onclick="return false;">[Coloca aquí tu enlace]</a>
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Enlace del sitio</h3>
+            <p style="margin:0">
+              <a href="https://ezequielsantillan-pels.github.io/Finanzas-para-la-vida/" target="_blank" rel="noopener">
+                Abrir sitio: Finanzas para la Vida
+              </a>
+            </p>
+            <div class="divider"></div>
+            <p style="margin:0;color:var(--muted);font-size:13px">
+              Recomendación: grabación de pantalla (recorrido por secciones) + audio con tu voz (4–8 minutos).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 16) #referencias -->
     <section id="referencias">
       <div class="panel section-card">
         <div class="section-head">
           <div>
             <h2>Referencias</h2>
-            <p class="subtitle">Fuentes y autoría del proyecto (puedes ampliar con tus referencias APA 7 finales).</p>
+            <p class="subtitle">Fuentes consultadas en formato APA 7 (enlaces directos a recursos).</p>
           </div>
           <span class="tag">APA 7</span>
         </div>
 
         <div class="card">
           <ul class="list">
-            <li>Prepa en Línea SEP. (2026). Módulo 23. Unidad III: Las tecnologías emergentes en la administración y gestión. https://prepaenlinea.sep.gob.mx/</li>
+            <li>
+              Banco de México. (s. f.). <i>Mi presupuesto</i> (material educativo). Educa Banxico.
+              https://educa.banxico.org.mx/recursos/pdf/%7B32B1AE7B-9524-8942-980D-878CAEACAC9B%7D.pdf
+            </li>
+            <li>
+              Comisión Nacional para la Protección y Defensa de los Usuarios de Servicios Financieros. (s. f.).
+              <i>Guía familiar de educación financiera</i>.
+              https://www.condusef.gob.mx/documentos/273036_guia_familiar_de_EF.pdf
+            </li>
+            <li>
+              Instituto Nacional de Estadística y Geografía. (2022). <i>Encuesta Nacional de Inclusión Financiera (ENIF) 2021</i>.
+              https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2022/enif/ENIF21.pdf
+            </li>
+            <li>
+              Organisation for Economic Co-operation and Development. (2020).
+              <i>Recommendation of the Council on Financial Literacy</i>.
+              https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0461
+            </li>
           </ul>
-          <p style="margin:10px 0 0;color:var(--muted);font-size:13px">
+
+          <div class="divider"></div>
+          <p style="margin:0;color:var(--muted);font-size:13px">
             Autor: Yurdiell Ezequiel Santillán Martínez · Grupo: M23C2G56-023
           </p>
         </div>
@@ -780,7 +1159,7 @@
     </section>
 
     <footer>
-      Sitio Web del proyecto “Finanzas para la Vida”. Enfoque comunitario y evidencia metodológica al final. Publicado en GitHub Pages.
+      Proyecto comunitario “Finanzas para la Vida”. Sitio publicado en GitHub Pages. Sección metodológica al final como respaldo académico.
     </footer>
   </main>
 </body>
